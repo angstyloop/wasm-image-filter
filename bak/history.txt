@@ -1,0 +1,500 @@
+  611  cd ~/
+  612  ls | grep -i vue
+  613  ls vue-apps
+  614  cd vue-apps
+  615  ls
+  616  vue-cli
+  617  vue create json
+  618  ls
+  619  cd json
+  620  ls
+  621  ls public
+  622  cd src
+  623  ls
+  624  ls components
+  625  vim App.vue
+  626  mv components/HelloWorld.vue components/Json.vue
+  627  vim components/Json.vue
+  628  ls
+  629  vim App.vue
+  630  yarn serve
+  631  vim App.vue
+  632  yarn serve
+  633  vim App.vue
+  634  yarn serve
+  635  yarn serve
+  636  ls
+  637  cd components
+  638  ls
+  639  vim Json.vue
+  640  vim Json.vue
+  641  yarn serve
+  642  vim Json.vue
+  643  yarn serve
+  644  vim Json.vue
+  645  yarn serve
+  646  vim Json.vue
+  647  vim Json.vue
+  648  yarn serve
+  649  vim Json.vue
+  650  yarn serve
+  651  vim Json.vue
+  652  yarn serve
+  653  vim Json.vue
+  654  yarn serve
+  655  vim Json.vue
+  656  yarn serve
+  657  vim Json.vue
+  658  yarn serve
+  659  vim Json.vue
+  660  yarn serve
+  661  vim Json.vue
+  662  yarn serve
+  663  vim Json.vue
+  664  yarn serve
+  665  vim Json.vue
+  666  yarn serve
+  667  ls
+  668  vim Json.vue
+  669  mv Json.vue JsonHelper.vue
+  670  vim Json.vue
+  671  yarn serve
+  672  vim Json.vue
+  673  vim JsonHelper.vue
+  674  yarn serve
+  675  vim JsonHelper.vue
+  676  vim ../App.vue
+  677  vim Json.vue
+  678  yarn serve
+  679  yarn serve
+  680  vim Json.vue
+  681  vim JsonHelper.vue
+  682  yarn serve
+  683  yarn serve
+  684  yarn build
+  685  vim ../App.vue
+  686  yarn serve
+  687  vim ../App.vue
+  688  yarn build
+  689  yarn serve
+  690  ls
+  691  vim Json.vue
+  692  vim JsonHelper.vue
+  693  yarn serve
+  694  ls
+  695  vim JsonHelper.vue
+  696  yarn serve
+  697  vim JsonHelper.vue
+  698  vim JsonHelper.vue
+  699  yarn serve
+  700  ls
+  701  vim JsonHelper.vue
+  702  git status
+  703  pwd
+  704  pwd
+  705  cd ../..
+  706  ls
+  707  pwd
+  708  git status
+  709  pwd
+  710  cd ..
+  711  git status
+  712  git add json
+  713  echo .DS_Store >> .gitignore
+  714  git status
+  715  git add -u
+  716  git commit -m "new vue component, <json :value=\"obj\">"
+  717  git status
+  718  git add .gitignore
+  719  git status
+  720  git commit --amend
+  721  git status
+  722  git push
+  723  git status
+  724  ls
+  725  cd json
+  726  ls
+  727  ls
+  728  cd src/
+  729  ls
+  730  cd components
+  731  ls
+  732  vim Json.vue
+  733  vim JsonHelper.vue
+  734  yarn serve
+  735  ls
+  736  vim ../App.vue
+  737  yarn serve
+  738  git status
+  739  git add -u
+  740  git commit -m "added some div wrappers so I could put the v-bind keys and indent class on the wrappers instead of each child\n"
+  741  git push
+  742  ls
+  743  pwd
+  744  ls
+  745  git status
+  746  pwd
+  747  cd ../../..
+  748  ls
+  749  ls
+  750  dirs
+  751  dirs[0]
+  752  dirs 0
+  753  dirs +0
+  754  dirs +1
+  755  dirs
+  756  popd
+  757  popd
+  758  ls
+  759  cd json
+  760  ls
+  761  cd src/components
+  762  ls
+  763  cp * $(pbpaste)
+  764  cd ~/vue-apps/json
+  765  ls
+  766  cd src
+  767  cat App.vue|pbcopy
+  768  vim App.vue
+  769  cat App.vue|pbcopy
+  770  git status
+  771  git branch
+  772  git checkout dfs-6668-account-audits
+  773  git fetch && git merge origin/develop
+  774  git status
+  775  git push
+  776  git status
+  777  git checkout develop-sean
+  778  git fetch && git merge origin/develop
+  779  git status
+  780  cd $(dirname $(pbpaste))
+  781  ls
+  782  pushd ~/vue-apps/
+  783  cd json
+  784  ls
+  785  cd src
+  786  ls
+  787  cd components
+  788  ls
+  789  cp Json*.vue $(popd)
+  790  pwd
+  791  ls
+  792  popd
+  793  pwd|pbcopy
+  794  ls
+  795  git add Json*.vue
+  796  pwd
+  797  cd ~/source/dfs-finn/
+  798  vim .gitignore
+  799  git status
+  800  cd $(dirname $(pbpaste))
+  801  touch DemoJson.vue
+  802  idea DemoJson.vue
+  803  pbpaste > DemoJson.vue
+  804  pwd
+  805  git add DemoJson.vue
+  806  git status
+  807  git add -u
+  808  git status
+  809  ls -la
+  810  git status
+  811  git status
+  812  pwd
+  813  cd ~/source/dfs-finn
+  814  git status
+  815  git log
+  816  git status
+  817  git add -u
+  818  git status
+  819  git commit -m "[dfs-6668]"
+  820  git commit --amend
+  821  git status
+  822  git status
+  823  git push
+  824  git add -ug
+  825  git add -u
+  826  git commit -m "[dfs-6668]"
+  827  git log
+  828  git commit --amend
+  829  git status
+  830  git push
+  831  git add -u
+  832  git commit -m "[dfs-6668]"
+  833  git commit --amend
+  834  git status
+  835  git push
+  836  ./emcc -v
+  837  vim ~/.zprofile
+  838  cd ../
+  839  ls
+  840  cd emscripten_hello_world_file
+  841  ls
+  842  vim hello*.cpp
+  843  ls
+  844  grep free_image *
+  845  vim image.h
+  846  pwd
+  847  ls
+  848  vim test.cpp
+  849  ls
+  850  vim image.h
+  851  vim process_image.cpp
+  852  vim load_image.cpp
+  853  ls
+  854  vim load_image.cpp
+  855  cd ..
+  856  ls
+  857  cd cd emscripten_hello_world_file
+  858  ls
+  859  vim cd emscripten_hello_world_file
+  860  cd emscripten_hello_world_file
+  861  ls
+  862  vim hello_world_file.cpp
+  863  vim hello.html
+  864  vim hello.js
+  865  vim process_image.c
+  866  cd ~/ComputerVision/pjreddie/vision-hw0
+  867  ls
+  868  ls src
+  869  cp -R src "$(pbpaste)/"
+  870  ls
+  871  ls obj
+  872  cp dog_no_red.jpg $(pbpaste)/
+  873  ls
+  874  vim Makefile
+  875  ls
+  876  make clean
+  877  make
+  878  ls
+  879  pwd
+  880  ls
+  881  ls obj
+  882  vim obj/load_image.o
+  883  ls
+  884  ls
+  885  ls
+  886  pwd
+  887  ls
+  888  find .
+  889  ls
+  890  ls data
+  891  ls src
+  892  ls
+  893  grep free_ src/*
+  894  ls
+  895  pwd|pbcopy
+  896  ls
+  897  vim getFilteredImageData.js
+  898  ls
+  899  vim getWASMModule.js
+  900  vim getWASMModule.js
+  901  ls
+  902  rm getImageData.js
+  903  ls
+  904  vim writeImageDataToCanvas.js
+  905  cat writeImageDataToCanvas.js|pbcopy
+  906  ls
+  907  cat getFilteredImageData.js|pbcopy
+  908  cd ..
+  909  ls
+  910  cd ..
+  911  ls
+  912  cd ~/wasm
+  913  ls
+  914  cd emsdk
+  915  ls
+  916  cd ..
+  917  ls
+  918  cd stb_load_image_example
+  919  vim process_image.c
+  920  ls
+  921  vim getWASMModule.js
+  922  rm writeImageDataToCanvas.js
+  923  ls
+  924  vim main.js
+  925  ls
+  926  vim getWASMModule.js
+  927  cat getWASMModule.js|pbcopy
+  928  vim App.vue
+  929  ls
+  930  vim App.vue
+  931  vim App.vue
+  932  ls
+  933  pwd
+  934  mv getWASMModule.js grayScale.c main.js ../
+  935  cd ..
+  936  ls
+  937  cp getWASMModule.js main.js grayScale.c public/
+  938  cd public
+  939  ls
+  940  mv index.html index.html.vuecli
+  941  cat main.js
+  942  mv main.js ../src
+  943  ls
+  944  pwd
+  945  ls
+  946  history -100 | grep emcc
+  947  ls
+  948  ls
+  949  pwd
+  950  cd ..
+  951  ls
+  952  ls public
+  953  rm public/getWASMModule.js public/grayScale.c
+  954  mv public/index.html.vuecli public/index.html
+  955  ls
+  956  ls src/assets
+  957  cp grayScale.c getWASMModule.js src
+  958  ls sr
+  959  ls src
+  960  cat main.js 
+  961  cat src/main.js
+  962  rm main.js
+  963  ls
+  964  cd src
+  965  ls
+  966  emcc -o grayScale.js grayScale.c -Os \\n-s WASM=1 \\n-s EXPORTED_FUNCTIONS="['_grayScale']";
+  967  vim App.vue
+  968  vim main.js
+  969  vim grayScale.js
+  970  vim grayScale.
+  971  vim grayScale.js
+  972  vim main.js
+  973  yarn serve
+  974  ls
+  975  vim main.js
+  976  yarn serve
+  977  ls
+  978  vim main.js
+  979  yarn serve
+  980  yarn serve
+  981  pwd
+  982  cd ..
+  983  yarn serve
+  984  ls
+  985  ls src
+  986  vim src/getWASMModule.js
+  987  pwd
+  988  yarn serve
+  989  ls
+  990  vim src/getWASMModule.js
+  991  rm getWASMModule.js
+  992  rm grayScale.c
+  993  yarn serve
+  994  ls
+  995  rm -r node_modules
+  996  yarn build
+  997  pwd
+  998  /bin/sh
+  999  oyarn serve
+ 1000  yarn serve
+ 1001  ls
+ 1002  ls
+ 1003  ls public
+ 1004  cp ~/darknet/data/dog.jpg public/image.jpg
+ 1005  vim src
+ 1006  cd src
+ 1007  ls
+ 1008  vim main.js
+ 1009  pwd
+ 1010  cd ../..
+ 1011  ls
+ 1012  mkdir grayscale_simple
+ 1013  cd grayscale_simple
+ 1014  cp ../grayscale/src/grayScale.c .
+ 1015  cp ../grayscale/src/getWASMModule.js .
+ 1016  ls
+ 1017  emcc grayScale.c -o grayScale.html
+ 1018  ls
+ 1019  vim getWASMModule.js
+ 1020  vim grayScale.html
+ 1021  ls
+ 1022  python -m http.server
+ 1023  vim getWASMModule.js
+ 1024  vim getWASMModule.js
+ 1025  python -m http.server
+ 1026  ls
+ 1027  vim grayScale.html
+ 1028  vim getWASMModule.js
+ 1029  python -m http.server
+ 1030  vim *html
+ 1031  python -m http.server
+ 1032  vim getWASMModule.js
+ 1033  python -m http.server
+ 1034  ls
+ 1035  vim getWASMModule.js
+ 1036  vim getWASMModule.js
+ 1037  vim grayScale.
+ 1038  vim grayScale.html
+ 1039  python -m http.server
+ 1040  ls
+ 1041  grep printErr *
+ 1042  vim grayScale.js
+ 1043  vim getWASMModule.js
+ 1044  python -m http.server
+ 1045  vim *html
+ 1046  python -m http.server
+ 1047  ls
+ 1048  vim getWASMModule.js
+ 1049  vim getWASMModule.js
+ 1050  vim getWASMModule.js
+ 1051  vim *html
+ 1052  python -m http.server 
+ 1053  ls
+ 1054  vim getWASMModule.js
+ 1055  python -m http.server 
+ 1056  ls
+ 1057  vim grayScale.
+ 1058  vim grayScale.html
+ 1059  vim getWASMModule.js
+ 1060  vim grayScale.html
+ 1061  python -m http.server
+ 1062  vim grayScale.html
+ 1063  python -m http.server
+ 1064  ls
+ 1065  vim grayScale.
+ 1066  vim grayScale.html
+ 1067  python -m http.server
+ 1068  vim getWASMModule.js
+ 1069  ls
+ 1070  cd ..
+ 1071  ls
+ 1072  ls
+ 1073  cd ..
+ 1074  ls
+ 1075  mkdir wasm_filter
+ 1076  cd wasm_filter
+ 1077  ls
+ 1078  vim filter.c
+ 1079  ls
+ 1080  vim filter.js
+ 1081  pwd
+ 1082  vim filter.html
+ 1083  ls
+ 1084  emcc filter.c -o filter.wasm
+ 1085  vim filter.c
+ 1086  emcc --no-entry filter.c -o filter.wasm
+ 1087  python -m http.server
+ 1088  ls
+ 1089  vim filter.js
+ 1090  python -m http.server
+ 1091  ls
+ 1092  vim filter.c
+ 1093  python -m http.server
+ 1094  vim filter.js
+ 1095  ls
+ 1096  python -m http.server
+ 1097  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']l:w"
+ 1098  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']
+ 1099  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']"
+ 1100  python -m http.server
+ 1101  ls
+ 1102  git status
+ 1103  ls
+ 1104  vim filter.c
+ 1105  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']
+ 1106  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']"
+ 1107  python -m http.server
+ 1108  vim filter.c
+ 1109  emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS="['_outline_c']"
+ 1110  python -m http.server

@@ -1,0 +1,1 @@
+emcc --no-entry filter.c -o filter.wasm -Os -s WASM=1 -s EXPORTED_FUNCTIONS=['_apply_edge_kernel_to_image','_malloc','_free'] -s ALLOW_MEMORY_GROWTH=1
