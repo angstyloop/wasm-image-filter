@@ -1,16 +1,15 @@
 function filter(imageData) {
     const { data, width, height } = imageData;
     const channels = 4;
-    const bufSize = width*height*channels;
-    const inBufPtr = wasm.exports.malloc(bufSize);
-    const outBufPtr = wasm.exports.malloc(bufSize);
-    const inBuf = new Uint8Array(wasm.exports.memory.buffer, inBufPtr, bufSize);
-    const outBuf = new Uint8Array(wasm.exports.memory.buffer, outBufPtr, bufSize);
+    const bufSize = width * height * channels;
 
+    const inBufPtr = wasm.exports.malloc(bufSize);
+    const inBuf = new Uint8Array(wasm.exports.memory.buffer, inBufPtr, bufSize);
     inBuf.set(data);
 
-    wasm.exports.apply_edge_kernel_to_image(inBufPtr, outBufPtr, width, height);
-
+    const outBufPtr = wasm.exports.malloc(bufSize);
+    const outBuf = new Uint8Array(wasm.exports.memory.buffer, outBufPtr, bufSize);
+    wasm.exports.applyEdgeKernelToImage(inBufPtr, outBufPtr, width, height);
     data.set(outBuf);
 
     wasm.exports.free(inBufPtr);
@@ -19,35 +18,22 @@ function filter(imageData) {
     return data;
 }
 
-function renderSource(source, dest) {
-    const context = dest.getContext('2d');
-    context.drawImage(source, 0, 0, dest.width, dest.height);
 
-    const imageData = context.getImageData(0, 0, dest.width, dest.height);
+function render(context2d, video, image) {
+    context2d.drawImage(video, 0, 0, image.width, image.height);
+    const imageData = context2d.getImageData(0, 0, image.width, image.height);
     imageData.data.set(filter(imageData));
-    context.putImageData(imageData, 0, 0);
-
-    requestAnimationFrame(_ => renderSource(source, dest));
+    context2d.putImageData(imageData, 0, 0);
+    requestAnimationFrame(() => render(context2d, video, image));
 }
 
 async function fetchWasmInstance() {
-    const response = await fetch('filter.wasm');
-
-    // not the most efficient way to load/compile WASM from server
-    //const wasmFile = await response.arrayBuffer();
-    //const compiledModule = await WebAssembly.compile(wasmFile);
-    //const {module, instance} = await WebAssembly.instantiate(compiledModule);
-    //
-
-    // most efficient
     const { instance } = await WebAssembly.instantiateStreaming(fetch('filter.wasm'), {
         env: {
-            emscripten_notify_memory_growth: function() {},
+            emscripten_notify_memory_growth: function() {}
         }
     });
     return instance;
-    //
-
 }
 
 async function main() {
@@ -62,7 +48,8 @@ async function main() {
     video.play();
 
     const image = document.querySelector('#image');
-    requestAnimationFrame(_ => renderSource(video, image));
+    const context2d = image.getContext('2d');
+    requestAnimationFrame(() => render(context2d, video, image));
 }
 
 let wasm;
