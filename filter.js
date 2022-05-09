@@ -1,3 +1,14 @@
+function getLeftEdgePos(image) {
+    const { data, width, height } = imageData;
+    const channels = 4;
+    const bufSize = width * height * channels;
+    const inBufPtr = wasm.exports.malloc(bufSize);
+    const inBuf = new Uint8Array(wasm.exports.memory.buffer, inBufPtr, bufSize);
+    inBuf.set(data);
+    const leftEdgePos = wasm.exports.process(inBufPtr, width, height);
+    wasm.exports.free(inBufPtr);
+}
+
 function filter(imageData) {
     const { data, width, height } = imageData;
     const channels = 4;

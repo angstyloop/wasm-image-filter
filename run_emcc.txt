@@ -1,0 +1,19 @@
+#!/bin/sh
+
+emcc \
+# Tells emcc not to look for a main() in filter.c.
+--no-entry \
+# The file containing the C functions.
+filter.c \
+# Name the output file, and only produce .wasm (.html/.js not produced).
+-o filter.wasm \
+# Uses highest level of optimization (like -O3) flag, but prefers to minimize code size.
+-Os \
+# Explicitly specify the C functions you want in the wasm module's exports. Note the leading underscore here.
+# The underscore does not appear in the actual C function name, nor the name of the corresponding Javascript 
+# function (which has the same name as the C function) in the module's exports .
+-s EXPORTED_FUNCTIONS=['_applyEdgeKernelToImage','_malloc','_free'] \
+# By default you have a limited amount memory you can allocate in the browser.
+# Compiling with this flag tells emcc to increase this limit when you run into it.
+# For WASM, this does not create overhead.
+-s ALLOW_MEMORY_GROWTH=1

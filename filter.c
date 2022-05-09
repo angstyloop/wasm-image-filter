@@ -62,3 +62,12 @@ void applyEdgeKernelToImage(uint8_t* inBuf, uint8_t* outBuf, size_t width, size_
         for (int y = 0; y < (int)height; ++y)
             applyEdgeKernelToPixel(inBuf, outBuf, x, y, width, height);
 }
+
+void getLeftEdgePos(uint8_t* inBuf, size_t width, height) {
+    const size_t width = *widthPtr;
+    for (size_t x=0; x<width; ++x) {
+        for (size_t y=0; y<height; ++y) {
+            
+        }
+    }
+}
