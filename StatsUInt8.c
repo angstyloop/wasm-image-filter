@@ -91,34 +91,31 @@ int main() {
 
     const StatsUInt8 stats = StatsUInt8_forImageSeries(data, width, height, time);
 
-    printf("channel: red   mean: %d   variance: %d   standardDeviation: %d\n",
-            stats.means[0], stats.variances[0], stats.standardDeviations[0]);
+    //DEBUG//printf("channel: red   mean: %d   variance: %d   standardDeviation: %d\n", stats.means[0], stats.variances[0], stats.standardDeviations[0]);
     assert(stats.means[0] == 170);
     assert(stats.variances[0] == 14450);
     assert(stats.standardDeviations[1]== 120);
 
-    printf("channel: green   mean: %d   variance: %d   standardDeviation: %d\n",
-            stats.means[1], stats.variances[1], stats.standardDeviations[1]);
+    //DEBUG//printf("channel: green   mean: %d   variance: %d   standardDeviation: %d\n", stats.means[1], stats.variances[1], stats.standardDeviations[1]);
     assert(stats.means[1] == 170);
     assert(stats.variances[1] == 14450);
     assert(stats.standardDeviations[1]== 120);
 
-    printf("channel: blue   mean: %d   variance: %d   standardDeviation: %d\n",
-            stats.means[2], stats.variances[2], stats.standardDeviations[2]);
+    //DEBUG//printf("channel: blue   mean: %d   variance: %d   standardDeviation: %d\n", stats.means[2], stats.variances[2], stats.standardDeviations[2]);
     assert(stats.means[2] == 170);
     assert(stats.variances[2] == 14450);
     assert(stats.standardDeviations[2]== 120);
 
-    fputc('\n', stdout);
+    //DEBUG//fputc('\n', stdout);
 
-    printf("width: %ld   height: %ld   time: %ld\n", width, height, time);
+    //DEBUG//printf("width: %ld   height: %ld   time: %ld\n", width, height, time);
 
-    fputc('\n', stdout);
+    //DEBUG//fputc('\n', stdout);
 
-    printf("data:\n");
+    //DEBUG//printf("data:\n");
 
     for (size_t i = 0; i < n * 4; i += 4) {
-        printf("%d %d %d %d\n", data[i], data[i + 1], data[i + 2], data[i + 3]);
+        //DEBUG//printf("%d %d %d %d\n", data[i], data[i + 1], data[i + 2], data[i + 3]);
     }
 
     return EXIT_SUCCESS;

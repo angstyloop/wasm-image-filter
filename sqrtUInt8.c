@@ -279,11 +279,11 @@ uint8_t sqrtUInt8(uint8_t i) {
 
 int main() {
     for (int i=0; i<256; ++i) {
-        printf("sqrtUInt8(%d) = %d\n", i, sqrtUInt8(i));
+        //DEBUG//printf("sqrtUInt8(%d) = %d\n", i, sqrtUInt8(i));
         assert((float)sqrtUInt8(i) <= sqrt((float)i));
     }
     const int pass = 1;
-    printf("\n[%d] %s %s", 0, pass ? "PASS" : "FAIL",
+    //DEBUG//printf("\n[%d] %s %s", 0, pass ? "PASS" : "FAIL",
             "It satisfies sqrtUInt8(i) <= sqrt(i) for all i in [0,255].\n");
     return 0;
 }

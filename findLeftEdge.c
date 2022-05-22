@@ -68,7 +68,7 @@ size_t findLeftEdge(const uint8_t* inBuf, size_t width, size_t height, size_t ti
     const StatsUInt8 stats = StatsUInt8_forImageSeries(inBuf, MIN_BAR_WIDTH, height, time);
 
     //DEBUG//puts("Stats:");
-    StatsUInt8_show(stats);
+    //DEBUG//StatsUInt8_show(stats);
 
     const size_t xstride = 4;
     const size_t ystride = width * 4;
@@ -96,10 +96,9 @@ size_t findLeftEdge(const uint8_t* inBuf, size_t width, size_t height, size_t ti
 
 #ifdef test_findLeftEdge
 
-#include "assert_h.h"
 #include "stdio_h.h"
 
-int main() {
+int test0() {
     const size_t width = 4;
     const size_t height = 4;
     const size_t time = 1;
@@ -115,6 +114,144 @@ int main() {
     size_t leftEdgePos = findLeftEdge(data, width, height, time);
     //DEBUG//printf("leftEdgePos = %zu\n", leftEdgePos);
     //DEBUG//printf("[%d] %s %s", 0, "???", "It runs.");
+    size_t expected = 1;
+    size_t actual = leftEdgePos;
+    if (expected != actual) {
+        puts("[0] FAIL It finds an edge.");
+        printf("expected=%zu not equal to actual=%zu", expected, actual);
+        return 1;
+    }
+    puts("[0] PASS It finds an edge.");
+    return 0;
+}
+
+int test1() {
+    const size_t width = 6;
+    const size_t height = 6;
+    const size_t time = 2;
+    const uint8_t data[(6 * 6 * 2) * 4] = {
+        0, 0, 0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+                                                                    
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+    };
+    size_t leftEdgePos = findLeftEdge(data, width, height, time);
+    //DEBUG//printf("leftEdgePos = %zu\n", leftEdgePos);
+    //DEBUG//printf("[%d] %s %s", 0, "???", "It runs.");
+    size_t expected = 2;
+    size_t actual = leftEdgePos;
+    if (expected != actual) {
+        puts("[1] FAIL It finds and edge (2).");
+        printf("expected=%zu not equal to actual=%zu", expected, actual);
+        return 1;
+    }
+    puts("[1] PASS It finds an edge (2).");
+    return 0;
+}
+
+int test2() {
+    const size_t width = 6;
+    const size_t height = 6;
+    const size_t time = 2;
+    const uint8_t data[(6 * 6 * 2) * 4] = {
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+                                                                    
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+    };
+    size_t leftEdgePos = findLeftEdge(data, width, height, time);
+    //DEBUG//printf("leftEdgePos = %zu\n", leftEdgePos);
+    //DEBUG//printf("[%d] %s %s", 0, "???", "It runs.");
+    size_t expected = 2;
+    size_t actual = leftEdgePos;
+    if (expected != actual) {
+        puts("[2] FAIL It sees a very different pixel as an edge.");
+        printf("expected=%zu not equal to actual=%zu", expected, actual);
+        return 1;
+    }
+    puts("[2] PASS It sees a very different pixel as an edge.");
+    return 0;
+}
+
+int test3() {
+    const size_t width = 6;
+    const size_t height = 6;
+    const size_t time = 2;
+    const uint8_t data[(6 * 6 * 2) * 4] = {
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+                                                                    
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+
+        0, 0, 0, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+    };
+    size_t leftEdgePos = findLeftEdge(data, width, height, time);
+    size_t expected = 0;
+    size_t actual = leftEdgePos;
+    if (expected != actual) {
+        puts("[3] FAIL It returns index 0 if no edge is found.");
+        printf("expected=%zu not equal to actual=%zu", expected, actual);
+        return 1;
+    }
+    puts("[3] PASS It returns index 0 if no edge is found.");
+    return 0;
+}
+
+int test4() {
+    const size_t width = 6;
+    const size_t height = 6;
+    const size_t time = 2;
+    const uint8_t data[(6 * 6 * 2) * 4] = {
+          0,   0,   0, 255,  255, 255, 255, 255,  128, 128, 128, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        255, 255, 255, 255,    0,   0,   0, 255,  128, 128, 128, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+                                                                    
+          0,   0,   0, 255,  255, 255, 255, 255,  128, 128, 128, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+        255, 255, 255, 255,    0,   0,   0, 255,  128, 128, 128, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+
+          0,   0,   0, 255,  255, 255, 255, 255,  128, 128, 128, 255,  0, 0, 0, 255,    0,   0,   0, 255,  0, 0, 0, 255,
+
+        255, 255, 255, 255,    0,   0,   0, 255,  128, 128, 128, 255,  0, 0, 0, 255,  255, 255, 255, 255,  0, 0, 0, 255,
+    };
+    size_t leftEdgePos = findLeftEdge(data, width, height, time);
+    size_t expected = 0;
+    size_t actual = leftEdgePos;
+    if (expected != actual) {
+        puts("[3] FAIL It doesn't see pixels as edges if their brightness is not statistically significant.");
+        printf("expected=%zu not equal to actual=%zu", expected, actual);
+        return 1;
+    }
+    puts("[3] PASS It doesn't see pixels as edges if their brightness is not statistically significant.");
+    return 0;
+}
+
+
+int main() {
+    test0();
+    test1();
+    test2();
+    test3();
+    test4();
     return 0;
 }
 

@@ -65558,11 +65558,11 @@ uint8_t sqrtUInt16(uint16_t i) {
 
 int main() {
     for (int i=0; i<65535; ++i) {
-        printf("sqrtUInt16(%d) = %d\n", i, sqrtUInt16(i));
+        //DEBUG//printf("sqrtUInt16(%d) = %d\n", i, sqrtUInt16(i));
         assert((float)sqrtUInt16(i) <= sqrt((float)i));
     }
     const int pass = 1;
-    printf("\n[%d] %s %s", 0, pass ? "PASS" : "FAIL",
+    //DEBUG//printf("\n[%d] %s %s", 0, pass ? "PASS" : "FAIL",
             "It satisfies sqrtUInt16(i) <= sqrt(i) for all i in [0,255].\n");
     return 0;
 }
