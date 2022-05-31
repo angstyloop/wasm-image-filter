@@ -1,0 +1,9 @@
+TODO
+
+[ ] Load image pixel data from a JPG file into an array of 8-bit unsigned
+    integers, using the STB libraries.
+
+[ ] Save an array of 8-bit unsigned integers to a JPG file, using the STB
+    libraries.
+
+[ ] ...
