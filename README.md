@@ -16,3 +16,7 @@ Since I've avoided relying on Emscripten's (totally dope) API, it's likely that 
 # To serve
 e.g.
 `python -m http.server`
+
+# References
+https://github.com/nothings/stb
+https://pjreddie.com/courses/computer-vision/
