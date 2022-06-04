@@ -29,10 +29,9 @@ clear && gcc -Wall -g -o test-load-image-uint8 -Dtest_load_image_uint8 load_imag
 void save_image_stb_uint8(uint8_t* cwhData, int c, int w, int h, const char *name)
 {
     char namebuf[256];
-    sprintf(namebuf, "%s.jpg", name);
+    snprintf(namebuf, 256, "%s.jpg", name);
     //int success = stbi_write_png(namebuf, w, h, c, data, w*c);
-    int success = stbi_write_jpg(namebuf, c, w, h, cwhData, 100);
-    free(cwhData);
+    int success = stbi_write_jpg(namebuf, w, h, c, cwhData, 100);
     if(!success){
         fprintf(stderr, "Failed to write image %s\n", namebuf);
     }
@@ -63,7 +62,9 @@ uint8_t* load_image_stb_uint8(
         int* wptr,
         int* hptr)
 {
-    uint8_t* cwhData = stbi_load(filename, cptr, wptr, hptr, 0);
+    uint8_t* cwhData = stbi_load(filename, wptr, hptr, cptr, 0);
+
+    printf("c=%d,%*cw=%d,%*ch=%d\n", *cptr, 4, ' ', *wptr, 4, ' ', *hptr);
 
     if(!cwhData){
         fprintf(stderr, "Cannot load image \"%s\"STB Reason: %s\n",
@@ -93,7 +94,7 @@ int main()
         {
             for(int k=0; k<h; ++k)
             {
-                const int index = i + j*c + k*c*w;
+                //const int index = i + j*c + k*c*w;
                 //printf("%u ", cwhData[index]);
             }
             //printf("%*c", 4, ' '); // print 4 spaces
@@ -104,14 +105,15 @@ int main()
     // Save image.
     save_image_stb_uint8(cwhData, c, w, h, "b");
 
-    // Load the image just saved.
-    uint8_t* cwhData2 = load_image_stb_uint8("./b.jpg", &c, &w, &h);
+    int c2=0, w2=0, h2=0;
 
-    // Assert the final image matches the original pixel by pixel.
-    for (int i=0; i<c*w*h; ++i)
-    {
-        assert(cwhData[i] == cwhData2[i]);
-    }
+    // Load the image just saved.
+    uint8_t* cwhData2 = load_image_stb_uint8("./b.jpg", &c2, &w2, &h2);
+
+    // Assert the dimensions match.
+    assert(c==c2);
+    assert(w==w2);
+    assert(h==h2);
 
     // Clean up.
     free(cwhData);
