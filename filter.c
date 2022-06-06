@@ -2,6 +2,8 @@
 //#include <stdlib.h>
 //#include "emscripten.h"
 
+#include "findLeftEdge.c"
+
 #ifndef size_t
 typedef unsigned long size_t;
 #endif
@@ -63,11 +65,15 @@ void applyEdgeKernelToImage(uint8_t* inBuf, uint8_t* outBuf, size_t width, size_
             applyEdgeKernelToPixel(inBuf, outBuf, x, y, width, height);
 }
 
-void getLeftEdgePos(uint8_t* inBuf, size_t width, height) {
-    const size_t width = *widthPtr;
-    for (size_t x=0; x<width; ++x) {
-        for (size_t y=0; y<height; ++y) {
-            
-        }
-    }
+/** Get the left edge of an image that sits between two vertical cinematic bars.
+ * See findLeftEdge.
+ */
+void getLeftEdgePos(uint8_t* inBuf,
+                    size_t width,
+                    size_t height,
+                    size_t time)
+{
+    size_t samplewidth = 10;
+    size_t channels = 4;
+    return findLeftEdge(inBuf, channels, samplewidth, width, height, time);
 }
